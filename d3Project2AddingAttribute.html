@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+        <style>
+        div.bar { 
+            display: inline-block;
+            width: 20px;
+            height: 75px;
+            background-color: teal;
+            margin-right: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var dataset = [ 5, 10, 15, 20, 25 ]; 
+
+            d3.select("body")
+            // .selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("div")
+            // .text(function(d) {
+            //     return d;
+            // })
+       
+            // .style("color", function(d) {
+            //     if (d > 15) { //Threshold of 15
+            //         return "red";
+            //     } else {
+            //         return "black";
+            //     }
+            // });
+            
+            .attr( "class", "bar");
+
+       </script>
+
+       <ol>
+            <li>finds the body in the DOM and hands a reference off</li>
+            <li>selects all paragraphs and returns an empty selection</li>
+            <li>counts and parses out data values</li>
+            <li>creat new data-bound elements</li>
+
+       </ol>
+    </body>
+</html>     
