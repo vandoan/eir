@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+        <style>
+        div.bar { 
+            display: inline-block;
+            width: 20px;
+            height: 75px;
+            background-color: teal;
+            margin: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <svg height="500" width="900">
+         <circle cx= "250" cy="25" r="20" fill="red" />
+         <circle cx="25" cy="25" r="20" fill="rgba(128, 0, 128, 1.0)" />
+         <circle cx="50" cy="25" r="20" fill="rgba(0, 0, 255, 0.75)" />'
+         <circle cx="75" cy="25" r="20" fill="rgba(128, 0, 128, .5)" />'
+         <circle cx="100" cy="25" r="20" fill="rgba(255, 255, 0, .25)" />'
+         <circle cx="125" cy="25" r="20" fill="rgba(128, 0, 128, .1)" />'
+        
+        <circle cx="25" cy="75" r="20" fill="rgba(128, 0, 128, 0.75)" 
+        stroke="rgba(0, 255, 0, 0.25)" stroke-width="20"/>
+        <circle cx="75" cy="75" r="20" fill="rgba(0, 255, 0, 0.75)"
+        stroke="rgba(0, 0, 255, 0.25)" stroke-width="10"/>
+        <circle cx="125" cy="75" r="20" fill="rgba(255, 255, 0, 0.75)"
+        stroke="rgba(255, 0, 0, 0.25)" stroke-width="50"/>
+        
+        <circle cx="25" cy="125" r="20" fill="purple" 
+        stroke="green" stroke-width="10"
+        opacity="0.9"/>
+        <circle cx="65" cy="125" r="20" fill="green"
+        stroke="blue" stroke-width="10"
+        opacity="0.5"/>
+        <circle cx="105" cy="125" r="20" fill="yellow"
+        stroke="red" stroke-width="10"
+        opacity="0.1"/>
+
+        </svg>
+
+
+
+
+        <script type="text/javascript">
+                                                        // create a random data set
+            var dataset = [];                           // initialize empty array
+
+            for (var i = 0; i < 25; i++) {              // loop 25 times
+                var newNumber = Math.random() * 30;     // new random number (0-30) 
+                dataset.push(newNumber);                //Add new number to array  
+            }
+               
+            d3.select("body")
+            // .selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("div")
+            // .text(function(d) {
+            //     return d;
+            // })
+       
+            // .style("color", function(d) {
+            //     if (d > 15) { //Threshold of 15
+            //         return "red";
+            //     } else {
+            //         return "black";
+            //     }
+            // });
+            
+            .attr( "class", "bar")
+            .style("height", function(d){
+                var barHeight = d * 5; // scale up by factor of 5
+
+                return barHeight + "px";
+            });
+
+       </script>
+
+    </body>
+</html>     

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+        <style>
+        div.bar { 
+            display: inline-block;
+            width: 20px;
+            height: 75px;
+            background-color: teal;
+            margin: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <svg height="500" width="900">
+          <text x="250" y="25" font-family="sans=serif" font-size="25" fill="gray">Easy-peasy</text>
+
+          <circle cx="25" cy="25" r="22" fill="yellow" stroke="orange" stroke-width="5" />
+        <!-- or use a class such as .pumpkin  -->
+        </svg>
+
+
+
+        <script type="text/javascript">
+                                                        // create a random data set
+            var dataset = [];                           // initialize empty array
+
+            for (var i = 0; i < 25; i++) {              // loop 25 times
+                var newNumber = Math.random() * 30;     // new random number (0-30) 
+                dataset.push(newNumber);                //Add new number to array  
+            }
+               
+            d3.select("body")
+            // .selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("div")
+            // .text(function(d) {
+            //     return d;
+            // })
+       
+            // .style("color", function(d) {
+            //     if (d > 15) { //Threshold of 15
+            //         return "red";
+            //     } else {
+            //         return "black";
+            //     }
+            // });
+            
+            .attr( "class", "bar")
+            .style("height", function(d){
+                var barHeight = d * 5; // scale up by factor of 5
+
+                return barHeight + "px";
+            });
+
+       </script>
+
+    </body>
+</html>     
