@@ -16,12 +16,14 @@
     </head>
     <body>
         <script type="text/javascript">
+                                                        // create a random data set
+            var dataset = [];                           // initialize empty array
 
-            var dataset = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
-                14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
-                24, 18, 25, 9, 3 ];
-
-
+            for (var i = 0; i < 25; i++) {              // loop 25 times
+                var newNumber = Math.random() * 30;     // new random number (0-30) 
+                dataset.push(newNumber);                //Add new number to array  
+            }
+               
             d3.select("body")
             // .selectAll("p")
             .data(dataset)
