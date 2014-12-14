@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Multiple Pies</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+        
+        <style type="text/css">
+            body { text-align: center; }
+        </style>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+
+            var data = [
+              [11975,  5871, 8916, 2868],
+              [ 1951, 10048, 2060, 6171],
+              [ 8010, 16145, 8090, 8045],
+              [ 1013,   990,  940, 6907]
+            ];
+            
+            var m = 10,
+            r = 100,
+            z = d3.scale.category20c();
+            
+            var svg = d3.select("body").selectAll("svg")
+                .data(data)
+                .enter().append("svg:svg")
+                .attr("width", (r+m) * 2)
+                .attr("height", (r+m) *2)
+                .append("svg:g")
+                .attr("transform", "translate("+(r+m)+","+(r+m)+")");
+                
+                svg.selectAll("path")
+                .data(d3.layout.pie())
+                .enter().append("svg:path")
+                .attr("d", d3.svg.arc()
+                    .innerRadius(r/2)
+                    .outerRadius(r))
+                .style("fill", function(d,i){ return z(i); });
+       </script>
+
+    <p>http://bl.ocks.org/mbostock/1305111</p>
+    </body>
+</html>     
